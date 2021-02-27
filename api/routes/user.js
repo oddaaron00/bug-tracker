@@ -7,14 +7,20 @@ const Workspace = require('../models/workspace');
 const Group = require('../models/group');
 const Item = require('../models/item');
 
+//MongoDB details
 const URI = process.env.URI;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }
 
+/**
+ * GET /user
+ * @todo convert all callbacks to promises
+ */
 router.get('/', (req, res) => {
     const token = req.headers['x-access-token'];
+    //If no token, returns 401
     if (!token) return res.status(401).send(JSON.stringify({ auth: false, message: 'No token provided.' }));
 
     jwt.verify(token, process.env.SECRET_KEY, function(err, decoded) {
