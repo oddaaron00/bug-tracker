@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+/**
+ * Schema for the workspace:
+ * User > WORKSPACE > Group > Item
+ */
 const workspaceSchema = new Schema({
     owner: {type: Schema.Types.ObjectId, required: false},
     title: {type: String, required: true},

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
 
+/**
+ * Schema for the user:
+ * USER > Workspace > Group > Item
+ */
 const userSchema = new Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
