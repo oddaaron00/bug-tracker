@@ -1,0 +1,156 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+table {
+    width: 100%;
+}
+
+#entry {
+    display: flex;
+    justify-content: center;
+}
+
+#switch {
+    margin-top: 15px;
+}
+
+.container {
+    padding: 50px;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;;
+    margin-top: 100px;
+}
+
+.errorContainer {
+    background-color: #f5ab9e;
+    display: flex;
+    justify-content: space-between;
+}
+
+.errorMessage {
+    margin: 0;
+    padding: 4px;
+    font-size: 11pt;
+}
+
+.errorCross {
+    margin: auto 0;
+    padding: 0px 10px;
+}
+
+.backButton {
+    margin: 0px 20px;
+    position: absolute;
+}
+
+.mainTitle {
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.workspaceSnippet {
+    box-sizing: border-box;
+    border: 2px solid #e6e6e6;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px;
+    padding: 0px 2px;
+}
+
+.workspaceSnippet > h2 {
+    text-align: center;
+}
+.workspaceSnippet > p {
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.workspaceSnippet > button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+}
+
+#rightmostFormElement {
+    margin-right: 10px;
+}
+.addWorkspace {
+    margin: 0px 20px;
+}
+.description {
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.collapseGroup {
+    padding: 0px 5px;
+}
+.groupHeader {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.item {
+    text-overflow: ellipsis;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.item:focus {
+    outline: 2px dashed #adadad;
+    padding: 8px 0px;
+}
+.item:hover {
+    outline: 2px dashed #adadad;
+    padding: 8px 0px;
+}
+.table-container {
+    padding: 0px 20px;
+    padding-bottom: 10px;
+}
+.addItemButton {
+    margin-left: 20px;
+}
+.newItem {
+    padding: 0px 20px;
+}
+.rightmostNewItem {
+    margin-right: 10px;
+}
+.addNewItemButtons {
+    display: inline-block;
+}
+
+/* Taken from w3schools */
+.tooltip {
+    position: relative;
+  }
+  
+/* Tooltip text */
+.tooltip .tooltiptext {
+visibility: hidden;
+width: 120px;
+background-color: black;
+color: #fff;
+text-align: center;
+padding: 5px;
+border-radius: 6px;
+word-wrap: break-word;
+
+/* Position the tooltip text - see examples below! */
+position: absolute;
+z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+visibility: visible;
+}
+
+.noItems {
+    padding-left: 20px;
+}
