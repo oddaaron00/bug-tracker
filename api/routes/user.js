@@ -15,9 +15,9 @@ const options = {
 }
 
 /**
- * GET /user
  * @todo convert all callbacks to promises
  */
+
 router.get('/', (req, res) => {
     const token = req.headers['x-access-token'];
     //If no token, returns 401
