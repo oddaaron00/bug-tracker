@@ -8,6 +8,9 @@ export default function Entry(props) {
     const [isLogin, isRegister] = useState(true);
     const [error, setError] = useState();
 
+    /**
+     * If a token exists, calls getUser with said token
+     */
     useEffect(() => {
         const token = localStorage.getItem('BugTrackerToken');
         if (token) {
@@ -15,6 +18,11 @@ export default function Entry(props) {
         }
     }, [])
 
+    /**
+     * Attempts to register user with provided info
+     * @param {String} username - Supplied username
+     * @param {String} password - Supplied password
+     */
     const attemptRegister = (username, password) => {
         fetch('http://localhost:3006/register', {
           method: 'POST',
@@ -40,9 +48,14 @@ export default function Entry(props) {
                 getUser(res.token)
             }
         })
-        .catch(err => setError(`(${err.status}): ${err.statusText}`))
-      }
+        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+    }
 
+    /**
+     * Attempts to login user with provided info
+     * @param {String} username - Supplied username
+     * @param {String} password - Supplied password
+     */
     const attemptLogin = (username, password) => {
         fetch('http://localhost:3006/login', {
             method: 'POST',
@@ -71,6 +84,10 @@ export default function Entry(props) {
         .catch(err => setError(`(${err.status}): ${err.statusText}`))
     }
 
+    /**
+     * Gets user from server
+     * @param {String} token - JWT for user
+     */
     const getUser = token => {
         fetch('http://localhost:3006/user', {
             method: 'GET',
