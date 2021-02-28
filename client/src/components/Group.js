@@ -6,7 +6,7 @@ import { faMinusSquare as minusOpen } from '@fortawesome/free-regular-svg-icons'
 
 /**
  * @param {Object} props
- * @param {String} props.key
+ * @param {string} props.key
  * @param {Function} props.addItemToGroup
  * @param {Object} props.group
  * @param {Function} props.updateItem

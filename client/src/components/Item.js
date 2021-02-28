@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 /**
  * @param {Object} props
- * @param {String} props.key
+ * @param {string} props.key
  * @param {Object} props.item
- * @param {String} props.group_id
+ * @param {string} props.group_id
  * @param {Function} props.updateItem
  * @param {Function} props.deleteItem
  */

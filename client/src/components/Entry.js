@@ -15,7 +15,7 @@ export default function Entry(props) {
     const [error, setError] = useState();
 
     /**
-     * If a token exists, calls getUser with said token
+     * If a token exists on component mount, calls getUser with said token
      */
     useEffect(() => {
         const token = localStorage.getItem('BugTrackerToken');
@@ -26,8 +26,8 @@ export default function Entry(props) {
 
     /**
      * Attempts to register user with provided info
-     * @param {String} username - Supplied username
-     * @param {String} password - Supplied password
+     * @param {string} username - Supplied username
+     * @param {string} password - Supplied password
      */
     const attemptRegister = (username, password) => {
         fetch('http://localhost:3006/register', {
@@ -59,8 +59,8 @@ export default function Entry(props) {
 
     /**
      * Attempts to login user with provided info
-     * @param {String} username - Supplied username
-     * @param {String} password - Supplied password
+     * @param {string} username - Supplied username
+     * @param {string} password - Supplied password
      */
     const attemptLogin = (username, password) => {
         fetch('http://localhost:3006/login', {
@@ -92,7 +92,7 @@ export default function Entry(props) {
 
     /**
      * Gets user from server
-     * @param {String} token - JWT for user
+     * @param {string} token - JWT for user
      */
     const getUser = token => {
         fetch('http://localhost:3006/user', {

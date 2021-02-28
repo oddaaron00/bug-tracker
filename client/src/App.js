@@ -11,6 +11,9 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem('BugTrackerToken'));
   const [error, setError] = useState();
   
+  /**
+   * Removes token from localStorage and logs out user
+   */
   const logOut = () => {
     localStorage.removeItem('BugTrackerToken');
     setToken('');
@@ -18,6 +21,11 @@ export default function App() {
     changeLoginState(false);
   }
 
+  /**
+   * @param {Object} newWorkspace 
+   * @param {string} newWorkspace.title
+   * @param {string} newWorkspace.description
+   */
   const addWorkspace = newWorkspace => {
     fetch(`http://localhost:3006/user/${user.username}/`, {
         method: 'POST',
@@ -38,6 +46,9 @@ export default function App() {
     .catch(err => setError(`(${err.status}): ${err.statusText}`))
 }
 
+/**
+ * @param {string} workspaceId 
+ */
 const deleteWorkspace = workspaceId => {
   fetch(`http://localhost:3006/user/${user.username}/`, {
         method: 'DELETE',

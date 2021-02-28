@@ -5,9 +5,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * @param {Object} props
- * @param {String} props.token
- * @param {String} props.workspaceId
- * @param {String} props.username
+ * @param {string} props.token
+ * @param {string} props.workspaceId
+ * @param {string} props.username
  * @param {Function} props.toHome
  */
 export default function Workspace(props) {

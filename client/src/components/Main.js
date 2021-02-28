@@ -5,7 +5,7 @@ import Workspace from './Workspace';
 /**
  * @param {Object} props 
  * @param {Object} props.user
- * @param {String} props.token
+ * @param {string} props.token
  * @param {Function} props.addWorkspace
  * @param {Function} props.deleteWorkspace
  * @param {Function} props.logOut
