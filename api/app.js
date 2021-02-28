@@ -36,7 +36,7 @@ const verifyJwt = (req, res, next) => {
 }
 
 /**
- * For every /user/:username/ request, makes sure that the user accessing that user's files has authorisation
+ * For every request, makes sure that the user accessing that user's files has authorisation
  */
 const checkAuthorised = (req, res, next) => {
     const token = req.headers['x-access-token'];
@@ -51,13 +51,13 @@ const checkAuthorised = (req, res, next) => {
             res.status(401).send(JSON.stringify('UNAUTHORISED'))
         }
     })
-    .catch(e => {
+    .catch(err => {
         res.status(400).send(JSON.stringify('INVALID TOKEN'));
     })
 }
 
 /**
- * For every /user/:username/:id/ request, makes sure that the user accessing that user's workspaces has authorisation
+ * For every request, makes sure that the user accessing that user's workspaces has authorisation
  */
 const checkAuthorisedWorkspace = (req, res, next) => {
     const token = req.headers['x-access-token'];
@@ -71,11 +71,11 @@ const checkAuthorisedWorkspace = (req, res, next) => {
             res.status(401).send(JSON.stringify('UNAUTHORISED'));
         }
     })
-    .catch(e => {
+    .catch(err => {
         res.status(400).send(JSON.stringify('INVALID TOKEN'));
     })
 }
-1
+
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/user/', verifyJwt);
