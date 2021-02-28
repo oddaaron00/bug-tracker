@@ -2,6 +2,7 @@
  Bug tracker web app built using the MERN stack with added authentication using JWT
 
 To start, create a .env file under /api with SECRET_KEY and URI
+
 SECRET_KEY: The secret key used for JWT signing
 URI: The URI of the Mongo database
 
