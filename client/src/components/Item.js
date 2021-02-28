@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 
 /**
  * @param {Object} props
- * @param {string} props.key
- * @param {string} props.group_id
- * @param {Function} props.deleteItem
+ * @param {String} props.key
  * @param {Object} props.item
+ * @param {String} props.group_id
+ * @param {Function} props.updateItem
+ * @param {Function} props.deleteItem
  */
 export default function Item(props) {
 

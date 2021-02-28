@@ -1,5 +1,10 @@
 import { useState } from 'react';
 
+/**
+ * @param {Object} props 
+ * @param {Function} props.changeToRegister
+ * @param {Function} props.attemptLogin
+ */
 export default function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

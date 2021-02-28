@@ -4,6 +4,12 @@ import Register from './Register';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * @param {Object} props
+ * @param {Function} props.changeLoginState
+ * @param {Function} props.changeUser
+ * @param {Function} props.setToken
+ */
 export default function Entry(props) {
     const [isLogin, isRegister] = useState(true);
     const [error, setError] = useState();

@@ -3,6 +3,13 @@ import Group from './Group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * @param {Object} props
+ * @param {String} props.token
+ * @param {String} props.workspaceId
+ * @param {String} props.username
+ * @param {Function} props.toHome
+ */
 export default function Workspace(props) {
     const [workspace, setWorkspace] = useState({});
     const [isLoading, setLoading] = useState(true);

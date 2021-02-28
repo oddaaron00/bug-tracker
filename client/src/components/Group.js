@@ -6,10 +6,11 @@ import { faMinusSquare as minusOpen } from '@fortawesome/free-regular-svg-icons'
 
 /**
  * @param {Object} props
- * @param {string} props.key
+ * @param {String} props.key
  * @param {Function} props.addItemToGroup
- * @param {Function} props.deleteItem
  * @param {Object} props.group
+ * @param {Function} props.updateItem
+ * @param {Function} props.deleteItem
  */
 export default function Group(props) {
     const defaultState = {

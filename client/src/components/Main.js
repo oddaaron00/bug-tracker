@@ -2,6 +2,14 @@ import { useState } from 'react';
 import WorkspaceSnippet from './WorkspaceSnippet';
 import Workspace from './Workspace';
 
+/**
+ * @param {Object} props 
+ * @param {Object} props.user
+ * @param {String} props.token
+ * @param {Function} props.addWorkspace
+ * @param {Function} props.deleteWorkspace
+ * @param {Function} props.logOut
+ */
 export default function Main(props) {
     const [workspaceId, setWorkspaceId] = useState('');
 
