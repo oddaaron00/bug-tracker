@@ -170,7 +170,7 @@ router.delete('/:username/:id', (req, res) => {
   .then(obj => res.send(JSON.stringify(obj)))
   .catch(err => {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send(JSON.stringify(err));
   });
 });
 
@@ -184,7 +184,7 @@ router.put('/:username/:id', (req, res) => {
   .then(obj => res.send(JSON.stringify(obj)))
   .catch(err => {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send(JSON.stringify(err));
   });
 });
 
