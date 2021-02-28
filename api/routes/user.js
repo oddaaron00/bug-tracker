@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     .then(obj => res.send(obj))
     .catch(err => {
       console.log(err);
-      res.status(500).send(err);
+      res.status(500).send(JSON.stringify('ERROR'));
     });
 });
 
@@ -53,7 +53,7 @@ router.post('/:username', (req, res) => {
     .then(obj => res.send(obj))
     .catch(err => {
       console.log(err);
-      res.status(500).send(err);
+      res.status(500).send(JSON.stringify('ERROR'));
     });
 });
 
@@ -73,7 +73,7 @@ router.delete('/:username', (req, res) => {
   .then(obj => res.send(obj))
   .catch(err => {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send(JSON.stringify('ERROR'));
   });
 });
 
@@ -113,7 +113,7 @@ router.get('/:username/:id', (req, res) => {
   .then(obj => res.send(obj))
   .catch(err => {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send(JSON.stringify('ERROR'));
   });
 });
 
@@ -133,7 +133,7 @@ router.post('/:username/:id', (req, res) => {
   .then(obj => res.send(JSON.stringify(obj)))
   .catch(err => {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send(JSON.stringify('ERROR'));
   });
 });
 
@@ -170,7 +170,7 @@ router.delete('/:username/:id', (req, res) => {
   .then(obj => res.send(JSON.stringify(obj)))
   .catch(err => {
     console.log(err);
-    res.status(500).send(JSON.stringify(err));
+    res.status(500).send(JSON.stringify('ERROR'));
   });
 });
 
@@ -184,7 +184,7 @@ router.put('/:username/:id', (req, res) => {
   .then(obj => res.send(JSON.stringify(obj)))
   .catch(err => {
     console.log(err);
-    res.status(500).send(JSON.stringify(err));
+    res.status(500).send(JSON.stringify('ERROR'));
   });
 });
 
