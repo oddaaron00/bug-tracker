@@ -7,5 +7,5 @@ To start, create a .env file under /api with variables SECRET_KEY and URI:
 - URI: The URI of the Mongo database
 - PORT: The API port
 
-Next, edit `setupEnvironment.bat` and change the file paths so they are accurate for your situation.
+Next, edit `setupEnvironment.bat` and change the file paths so they are accurate for your setup.
 Then run the .bat file to start both the client and the API.
