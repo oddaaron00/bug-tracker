@@ -26,7 +26,7 @@ export default function Item(props) {
         });
     }
 
-    const updateItem = e => {
+    const updateOnEnter = e => {
         if(e.key === 'Enter')
         {
             document.activeElement.blur();
@@ -37,7 +37,7 @@ export default function Item(props) {
         }
     }
 
-    const updateOnBlur = () => {
+    const updateItem = () => {
         props.updateItem({
             id: props.item._id,
             item: item
@@ -46,12 +46,12 @@ export default function Item(props) {
 
     return (
         <tr>
-            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateItem} onBlur={updateOnBlur} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
-            <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
+            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateOnEnter} onBlur={updateItem} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
+            <td className='tooltip'><input type='text' className='item' value={item.description} onKeyPress={updateOnEnter} onBlur={updateItem} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString()}</td>
             <td><input type='text' className='item' name='itemDueDate' value={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onChange={e => changeItem({...item, due_date: e.target.value})}/></td>
             <td>
-                <select type='text' className='item' title='priority' value={item.priority} onChange={e => changeItem({...item, priority: e.target.value})}>
+                <select type='text' className='item' title='priority' value={item.priority} onChange={e => {changeItem({...item, priority: e.target.value}); updateItem()}}>
                     <option value=''></option>
                     <option value='Low'>Low</option>
                     <option value='Medium'>Medium</option>
@@ -59,7 +59,7 @@ export default function Item(props) {
                 </select>
             </td>
             <td>
-                <select type='text' className='item' title='status' value={item.status} onChange={e => changeItem({...item, status: e.target.value})}>
+                <select type='text' className='item' title='status' value={item.status} onChange={e => {changeItem({...item, status: e.target.value}); updateItem()}}>
                     <option value=''></option>
                     <option value='Incomplete'>Incomplete</option>
                     <option value='Ordered'>Ordered</option>
