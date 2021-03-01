@@ -83,11 +83,7 @@ const cleanBody = (req, res, next) => {
     next();
 }
 
-app.post('/user/:username', cleanBody);
-app.put('/user/:username', cleanBody);
-app.post('/user/:username/:id', cleanBody);
-app.put('/user/:username/:id', cleanBody);
-
+app.use('/', cleanBody);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/user/', verifyJwt);

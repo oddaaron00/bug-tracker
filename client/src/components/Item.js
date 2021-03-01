@@ -29,6 +29,7 @@ export default function Item(props) {
     const updateItem = e => {
         if(e.key === 'Enter')
         {
+            document.activeElement.blur();
             props.updateItem({
                 id: props.item._id,
                 item: item
