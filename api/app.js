@@ -6,6 +6,7 @@ var logger = require('morgan');
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
 const sanitize = require("mongo-sanitize");
+const rateLimit = require('express-rate-limit');
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -21,6 +22,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const limiter = rateLimit({
+    windowMs: 1000,
+    max: 2
+});
 
 /**
  * For every /user/ request, verifies JWT
@@ -83,6 +89,7 @@ const cleanBody = (req, res, next) => {
     next();
 }
 
+app.use(limiter);
 app.use('/', cleanBody);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);

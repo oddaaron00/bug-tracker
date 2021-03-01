@@ -17,13 +17,13 @@ export default function Item(props) {
         due_date: props.item.due_date,
         priority: props.item.priority,
         status: props.item.status
-    })
+    });
 
     const deleteItem = () => {
         props.deleteItem({
             item_id: props.item._id,
             group_id: props.group_id
-        })
+        });
     }
 
     const updateItem = e => {
@@ -41,7 +41,7 @@ export default function Item(props) {
         props.updateItem({
             id: props.item._id,
             item: item
-        })
+        });
     }
 
     return (
