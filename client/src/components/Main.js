@@ -29,7 +29,7 @@ export default function Main(props) {
         )
     } else {
         return (
-            <Workspace token={props.token} workspaceId={workspaceId} username={props.user.username} toHome={() => setWorkspaceId('')}/>
+            <Workspace token={props.token} workspaceId={workspaceId} username={props.user.username} setError={props.setError} toHome={() => setWorkspaceId('')}/>
         )
     }
 }

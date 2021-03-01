@@ -28,7 +28,7 @@ export default function Workspace(props) {
         })
         .then(res => setWorkspace(res))
         .then(() => setLoading(false))
-        .catch(err => props.props.setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }, []); 
 
     const fetchJSON = (object, method) => {
