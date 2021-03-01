@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import Group from './Group';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * @param {Object} props

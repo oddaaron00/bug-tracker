@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import Login from './Login';
 import Register from './Register';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * @param {Object} props
