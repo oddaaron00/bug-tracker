@@ -22,7 +22,7 @@ export default function Main(props) {
                 </header>
                 <ul className='pure-g'>
                     <WorkspaceSnippet default={true} addWorkspace={props.addWorkspace}/>
-                    {!props.user.workspaces.length && <p>No workspaces!</p>}
+                    {!props.user.workspaces.length && <li className='pure-u-1 noWorkspaceMsg'>No workspaces!</li>}
                     {props.user.workspaces.map(workspace => <WorkspaceSnippet key={workspace._id} workspace={workspace} deleteWorkspace={props.deleteWorkspace} setWorkspaceId={setWorkspaceId} />)}
                 </ul>
             </div>

@@ -67,8 +67,8 @@ export default function Group(props) {
 
     return (
         <li>
-            <div className='groupHeader'>
-                <FontAwesomeIcon className='collapseGroup' icon={itemVisibility ? minusOpen : minusClosed } aria-label='Minimise group' onClick={() => areItemsVisible(!itemVisibility)}/>
+            <div className='groupHeader' onClick={() => areItemsVisible(!itemVisibility)}>
+                <FontAwesomeIcon className='collapseGroup' icon={itemVisibility ? minusOpen : minusClosed } aria-label='Minimise group'/>
                 <h2 style={{'display':'inline-block'}}>{props.group.title}</h2>
             </div>
             <div className='table-container'>

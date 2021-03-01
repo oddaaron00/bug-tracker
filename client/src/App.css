@@ -154,3 +154,8 @@ visibility: visible;
 .noItems {
     padding-left: 20px;
 }
+
+.noWorkspaceMsg {
+    padding: 30px;
+    text-align: center;
+}
