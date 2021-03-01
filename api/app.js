@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
+const sanitize = require("mongo-sanitize");
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -76,11 +77,20 @@ const checkAuthorisedWorkspace = (req, res, next) => {
     })
 }
 
+const cleanBody = (req, res, next) => {
+    req.body = sanitize(req.body);
+    next();
+}
+
+
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/user/', verifyJwt);
 app.use('/user/:username', checkAuthorised);
 app.use('/user/:username/:id', checkAuthorisedWorkspace);
 app.use('/user', userRouter);
+
+app.post('/', cleanBody);
+app.put('/', cleanBody);
 
 module.exports = app;
