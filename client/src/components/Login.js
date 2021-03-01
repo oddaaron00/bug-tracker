@@ -15,9 +15,9 @@ export default function Login(props) {
                 <h1>Login</h1>
                 <form className='pure-form pure-form-stacked'>
                     <label htmlFor='username'>Username</label>
-                    <input type='text' placeholder='Username' name='username' id='username' value={username} onChange={e => setUsername(e.target.value)}/>
+                    <input type='text' placeholder='Username' name='username' id='username' value={username} autoComplete="username" onChange={e => setUsername(e.target.value)}/>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' placeholder='Password' name='password' id='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                    <input type='password' placeholder='Password' name='password' id='password' autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)}/>
                     <button className='pure-button pure-button-primary' id='enter' onClick={e => {e.preventDefault(); props.attemptLogin(username, password)}}>Login</button>
                 </form>
                 <button className='pure-button' id='switch' onClick={props.changeToRegister}>Not a user? Register</button>
