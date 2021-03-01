@@ -84,7 +84,6 @@ const checkAuthorisedWorkspace = (req, res, next) => {
 }
 
 const cleanBody = (req, res, next) => {
-    console.log("Sanitised body")
     req.body = sanitize(req.body);
     next();
 }
