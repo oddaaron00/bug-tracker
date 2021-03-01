@@ -78,10 +78,15 @@ const checkAuthorisedWorkspace = (req, res, next) => {
 }
 
 const cleanBody = (req, res, next) => {
+    console.log("Sanitised body")
     req.body = sanitize(req.body);
     next();
 }
 
+app.post('/user/:username', cleanBody);
+app.put('/user/:username', cleanBody);
+app.post('/user/:username/:id', cleanBody);
+app.put('/user/:username/:id', cleanBody);
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
@@ -89,8 +94,5 @@ app.use('/user/', verifyJwt);
 app.use('/user/:username', checkAuthorised);
 app.use('/user/:username/:id', checkAuthorisedWorkspace);
 app.use('/user', userRouter);
-
-app.post('/', cleanBody);
-app.put('/', cleanBody);
 
 module.exports = app;
