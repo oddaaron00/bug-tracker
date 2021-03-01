@@ -12,7 +12,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
  */
 export default function Entry(props) {
     const [isLogin, isRegister] = useState(true);
-    const [error, setError] = useState();
 
     /**
      * If a token exists on component mount, calls getUser with said token
@@ -48,13 +47,13 @@ export default function Entry(props) {
             return res.json();
         })
         .then(res => {
-            setError();
+            props.setError();
             if (res.token !== null) {
                 props.setToken(res.token)
                 getUser(res.token)
             }
         })
-        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }
 
     /**
@@ -81,13 +80,13 @@ export default function Entry(props) {
             return res.json();
         })
         .then(res => {
-            setError();
+            props.setError();
             if (res.token !== null) {
                 props.setToken(res.token);
                 getUser(res.token);
             }
         })
-        .catch(err => setError(`(${err.status}): ${err.statusText}`))
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`))
     }
 
     /**
@@ -112,28 +111,16 @@ export default function Entry(props) {
             props.changeLoginState(true);
             localStorage.setItem('BugTrackerToken', token);
         })
-        .catch(err => setError(`(${err.status}): ${err.statusText}`))
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`))
     }
 
     if (isLogin) {
         return (
-            <>
-            <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-                <h2 className='errorMessage'>{error}</h2>
-                <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
-            </div>
-            <Login changeToRegister={() => {setError(); isRegister(false)}} attemptLogin={attemptLogin} />
-            </>
+            <Login changeToRegister={() => {props.setError(); isRegister(false)}} attemptLogin={attemptLogin} />
         )
     } else {
         return (
-            <>
-            <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-                <h2 className='errorMessage'>{error}</h2>
-                <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
-            </div>
-            <Register changeToLogin={() => {setError(); isRegister(true)}} attemptRegister={attemptRegister} />
-            </>
+            <Register changeToLogin={() => {props.setError(); isRegister(true)}} attemptRegister={attemptRegister} />
         )
     }
 }

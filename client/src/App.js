@@ -76,7 +76,7 @@ const deleteWorkspace = workspaceId => {
                 <h2 className='errorMessage'>{error}</h2>
                 <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
             </div>
-      <Entry changeLoginState={changeLoginState} changeUser={changeUser} setToken={setToken}/>
+      <Entry changeLoginState={changeLoginState} changeUser={changeUser} setToken={setToken} setError={setError}/>
       </>
     )
   } else {
@@ -86,7 +86,7 @@ const deleteWorkspace = workspaceId => {
         <h2 className='errorMessage'>{error}</h2>
         <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
       </div>
-      <Main user={user} token={token} addWorkspace={addWorkspace} deleteWorkspace={deleteWorkspace} logOut={logOut}/>
+      <Main user={user} token={token} addWorkspace={addWorkspace} deleteWorkspace={deleteWorkspace} logOut={logOut} setError={setError}/>
       </>
     )
   }

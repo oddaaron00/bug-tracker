@@ -13,7 +13,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export default function Workspace(props) {
     const [workspace, setWorkspace] = useState({});
     const [isLoading, setLoading] = useState(true);
-    const [error, setError] = useState();
     const [token] = useState(props.token ? props.token : localStorage.getItem('BugTrackerToken'));
 
     useEffect(() => {
@@ -31,7 +30,7 @@ export default function Workspace(props) {
         })
         .then(res => setWorkspace(res))
         .then(() => setLoading(false))
-        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.props.setError(`(${err.status}): ${err.statusText}`));
     }, []); 
 
     const fetchJSON = (object, method) => {
@@ -56,7 +55,7 @@ export default function Workspace(props) {
             return res.json();
         })
         .then(res => setWorkspace(res))
-        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }
          
     
@@ -69,7 +68,7 @@ export default function Workspace(props) {
             return res.json();
         })
         .then(res => setWorkspace(res))
-        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }
 
     const updateItem = item_id => {
@@ -81,27 +80,16 @@ export default function Workspace(props) {
             return res.json();
         })
         .then(res => setWorkspace(res))
-        .catch(err => setError(`(${err.status}): ${err.statusText}`));
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }
 
     if (isLoading) {
         return (
-            <>
-            <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-                <h2 className='errorMessage'>{error}</h2>
-                <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
-            </div>
             <h1>LOADING</h1>
-            
-            </>
         )
     } else {
         return (
             <>
-            <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-                <h2 className='errorMessage'>{error}</h2>
-                <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
-            </div>
             <header>
                 <button className='pure-button backButton' onClick={props.toHome}>Back</button>
                 <h1 className='mainTitle'>{workspace.title}</h1>
