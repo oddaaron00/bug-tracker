@@ -24,7 +24,7 @@ export default function Workspace(props) {
             }
         })
         .then(res => {
-        if (res.status !== 200 && res.status !== 304) {
+        if (res.status >= 400) {
             throw res;
         }
         return res.json();
@@ -50,7 +50,7 @@ export default function Workspace(props) {
         object.newItem.creation_date = new Date();
         fetchJSON(object, 'POST')
         .then(res => {
-            if (res.status === 500) {
+            if (res.status >= 400) {
                 throw res;
             }
             return res.json();
@@ -63,7 +63,7 @@ export default function Workspace(props) {
     const deleteItem = object => {
         fetchJSON(object, 'DELETE')
         .then(res => {
-            if (res.status === 500) {
+            if (res.status >= 400) {
                 throw res;
             }
             return res.json();
@@ -75,7 +75,7 @@ export default function Workspace(props) {
     const updateItem = item_id => {
         fetchJSON(item_id, 'PUT')
         .then(res => {
-            if (res.status === 500) {
+            if (res.status >= 400) {
                 throw res;
             }
             return res.json();

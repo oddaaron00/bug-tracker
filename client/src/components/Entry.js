@@ -42,7 +42,7 @@ export default function Entry(props) {
           })
         })
         .then(res => {
-            if (res.status !== 200) {
+            if (res.status >= 400) {
               throw res;
             }
             return res.json();
@@ -75,7 +75,7 @@ export default function Entry(props) {
             })
         })
         .then(res => {
-            if (res.status !== 200) {
+            if (res.status >= 400) {
             throw res;
             }
             return res.json();
@@ -102,7 +102,7 @@ export default function Entry(props) {
             }
         })
         .then(res => {
-            if (res.status !== 200) {
+            if (res.status >= 400) {
                 throw res;
             }
             return res.json();
