@@ -29,7 +29,6 @@ export default function Item(props) {
     const updateItem = e => {
         if(e.key === 'Enter')
         {
-            document.activeElement.blur();
             props.updateItem({
                 id: props.item._id,
                 item: item
@@ -37,9 +36,16 @@ export default function Item(props) {
         }
     }
 
+    const updateOnBlur = () => {
+        props.updateItem({
+            id: props.item._id,
+            item: item
+        })
+    }
+
     return (
         <tr>
-            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateItem} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
+            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateItem} onBlur={updateOnBlur} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
             <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString()}</td>
             <td><input type='text' className='item' name='itemDueDate' value={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onChange={e => changeItem({...item, due_date: e.target.value})}/></td>
