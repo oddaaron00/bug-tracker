@@ -19,7 +19,7 @@ export default function Entry(props) {
         if (token) {
             getUser(token);
         }
-    }, [])
+    })
 
     /**
      * Attempts to register user with provided info
