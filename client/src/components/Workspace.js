@@ -29,7 +29,7 @@ export default function Workspace(props) {
         .then(res => setWorkspace(res))
         .then(() => setLoading(false))
         .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
-    }, []); 
+    }, [props, token]); 
 
     const fetchJSON = (object, method) => {
         return fetch(`http://localhost:3006/user/${props.username}/${props.workspaceId}`, {
