@@ -10,7 +10,7 @@ const URI = process.env.URI;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}
+};
 
 /**
  * POST /register
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
                 return token;
             })
             //Sends 200 with token
-            .then(token => res.status(200).send(JSON.stringify({ auth: true, token: token })))
+            .then(token => res.status(200).send(JSON.stringify({ auth: true, token: token })));
         }
     })
     .catch(err => {

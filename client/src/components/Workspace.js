@@ -14,7 +14,7 @@ export default function Workspace(props) {
     const [token] = useState(props.token ? props.token : localStorage.getItem('BugTrackerToken'));
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
         fetch(`http://localhost:3006/user/${props.username}/${props.workspaceId}`, {
             headers: {
                 'x-access-token': token
@@ -40,8 +40,8 @@ export default function Workspace(props) {
             'x-access-token': token
             },
             body: JSON.stringify(object)
-        })
-    }
+        });
+    };
 
     const addItemToGroup = object => {
         object.newItem.creation_date = new Date();
@@ -54,7 +54,7 @@ export default function Workspace(props) {
         })
         .then(res => setWorkspace(res))
         .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
-    }
+    };
          
     
     const deleteItem = object => {
@@ -67,7 +67,7 @@ export default function Workspace(props) {
         })
         .then(res => setWorkspace(res))
         .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
-    }
+    };
 
     const updateItem = item_id => {
         fetchJSON(item_id, 'PUT')
@@ -79,7 +79,7 @@ export default function Workspace(props) {
         })
         .then(res => setWorkspace(res))
         .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
-    }
+    };
 
     if (isLoading) {
         return (

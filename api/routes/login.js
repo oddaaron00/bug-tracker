@@ -10,7 +10,7 @@ const URI = process.env.URI;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}
+};
 
 /**
  * POST /login
