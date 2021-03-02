@@ -64,6 +64,7 @@ header {
 .workspaceSnippet > h2 {
     text-align: center;
 }
+
 .workspaceSnippet > p {
     padding: 10px;
     padding-bottom: 50px;
@@ -89,38 +90,47 @@ header {
 .collapseGroup {
     padding: 0px 5px;
 }
+
 .groupHeader {
     padding-left: 20px;
     display: flex;
     align-items: center;
 }
+
 .item {
     text-overflow: ellipsis;
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
 .item:focus {
     outline: 2px dashed #adadad;
     padding: 8px 0px;
 }
+
 .item:hover {
     outline: 2px dashed #adadad;
     padding: 8px 0px;
 }
+
 .table-container {
     padding: 0px 20px;
     padding-bottom: 10px;
 }
+
 .addItemButton {
     margin-left: 20px;
 }
+
 .newItem {
     padding: 0px 20px;
 }
+
 .rightmostNewItem {
     margin-right: 10px;
 }
+
 .addNewItemButtons {
     display: inline-block;
 }
