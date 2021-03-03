@@ -70,7 +70,7 @@ const deleteWorkspace = workspaceId => {
   .catch(err => setError(`(${err.status}): ${err.statusText}`))
 }
 
-  if (!isLoggedIn) {
+  /*if (!isLoggedIn) {
     return (
       <>
       <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
@@ -91,4 +91,19 @@ const deleteWorkspace = workspaceId => {
       </>
     )
   }
+}*/
+
+return (
+  <Switch>
+    <Route path='/:username/:id'>
+      
+    </Route>
+    <Route path='/:username'>
+
+    </Route>
+    <Route path='/'>
+
+    </Route>
+  </Switch>
+)
 }
