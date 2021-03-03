@@ -73,7 +73,7 @@ export default function Entry(props) {
         })
         .then(res => {
             if (res.status >= 400) {
-            throw res;
+                throw res;
             }
             return res.json();
         })
