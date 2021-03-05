@@ -35,13 +35,14 @@ export default function Item(props) {
         //console.log(item);
     }
 
-    const checkItemEquality = 
-        item.title === props.item.title
+    const checkItemEquality = () => {
+        return item.title === props.item.title
         && item.description === props.item.description
         && item.creation_date === props.item.creation_date
         && item.due_date.getTime() === new Date(props.item.due_date).getTime()
         && item.priority === props.item.priority
         && item.status === props.item.status;
+    }
 
     return (
         <tr>
@@ -68,7 +69,7 @@ export default function Item(props) {
                     <option value='Complete'>Complete</option>
                 </select>
             </td>
-            <td><button className='pure-button' disabled={checkItemEquality} onClick={updateItem}>Update</button></td>
+            <td><button className='pure-button' disabled={checkItemEquality()} onClick={updateItem}>Update</button></td>
             <td><button className='pure-button' onClick={deleteItem}>Delete</button></td>
         </tr>
     )
