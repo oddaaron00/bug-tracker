@@ -69,11 +69,13 @@ header {
     padding: 10px;
     padding-bottom: 50px;
 }
-.workspaceSnippet > button {
-    width: 100%;
-    position: absolute;
+.buttonContainer {
+    text-align: center;
+}
+.buttonContainer > button {
+    width: 50%;
     bottom: 0;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 5px 5px 0px 0px
 }
 
 #rightmostFormElement {
