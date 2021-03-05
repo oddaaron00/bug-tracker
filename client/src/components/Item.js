@@ -14,7 +14,7 @@ export default function Item(props) {
         title: props.item.title,
         description: props.item.description,
         creation_date: props.item.creation_date,
-        due_date: props.item.due_date || '',
+        due_date: props.item.due_date ? new Date(props.item.due_date).toLocaleString('en-US') : '',
         priority: props.item.priority,
         status: props.item.status
     });
@@ -42,6 +42,9 @@ export default function Item(props) {
         } else if (isNaN(new Date(item.due_date).getTime()) && item.due_date !== '') {
             return true;
         } else {
+            console.log((new Date(item.due_date).getTime() === new Date(props.item.due_date).getTime() || (item.due_date === (props.item.due_date == null ? '' : props.item.due_date))))
+            console.log(new Date(item.due_date).getTime(), new Date(props.item.due_date).getTime())
+            console.log(item.due_date, props.item.due_date)
             return item.title === props.item.title
             && item.description === props.item.description
             && item.creation_date === props.item.creation_date
@@ -56,9 +59,9 @@ export default function Item(props) {
         <tr>
             <td className='tooltip'><input type='text' className='item' value={item.title} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
             <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
-            <td>{new Date(item.creation_date).toLocaleString()}</td>
+            <td>{new Date(item.creation_date).toLocaleString('en-US')}</td>
             <td>
-            <input type='text' className='item' name='itemDueDate' defaultValue={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onChange={e => {console.log(e.target.value); changeItem({...item, due_date: e.target.value})}}/>
+            <input type='text' className='item' name='itemDueDate' value={item.due_date} onChange={e => {console.log(e.target.value); changeItem({...item, due_date: e.target.value})}}/>
             </td>
             <td>
                 <select type='text' className='item' title='priority' value={item.priority} onChange={e => changeItem({...item, priority: e.target.value})}>
