@@ -26,18 +26,6 @@ export default function Item(props) {
         });
     }
 
-    const updateOnEnter = e => {
-        if (e.key === 'Enter')
-        {
-            document.activeElement.blur();
-            props.updateItem({
-                id: props.item._id,
-                item: item
-            })
-        }
-        //console.log(e.target.value);
-    }
-
     const updateItem = () => {
         //console.log(item.status);
         props.updateItem({
@@ -47,16 +35,24 @@ export default function Item(props) {
         //console.log(item);
     }
 
+    const checkItemEquality = 
+        item.title === props.item.title
+        && item.description === props.item.description
+        && item.creation_date === props.item.creation_date
+        && item.due_date === props.item.due_date
+        && item.priority === props.item.priority
+        && item.status === props.item.status;
+
     return (
         <tr>
-            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateOnEnter} onChange={e => {console.log(e.target.value); changeItem({...item, title: e.target.value}); console.log(item)}} /><span className='tooltiptext'>{item.title}</span></td>
-            <td className='tooltip'><input type='text' className='item' value={item.description} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
+            <td className='tooltip'><input type='text' className='item' value={item.title} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
+            <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString()}</td>
             <td>
-            <input type='text' className='item' name='itemDueDate' value={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, due_date: e.target.value})}/>
+            <input type='text' className='item' name='itemDueDate' value={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onChange={e => changeItem({...item, due_date: e.target.value})}/>
             </td>
             <td>
-                <select type='text' className='item' title='priority' value={item.priority} onChange={e => {console.log(e.target.value); changeItem({...item, priority: e.target.value}); updateItem()}}>
+                <select type='text' className='item' title='priority' value={item.priority} onChange={e => changeItem({...item, priority: e.target.value})}>
                     <option value=''></option>
                     <option value='Low'>Low</option>
                     <option value='Medium'>Medium</option>
@@ -64,7 +60,7 @@ export default function Item(props) {
                 </select>
             </td>
             <td>
-                <select type='text' className='item' title='status' value={item.status} onChange={e => {changeItem({...item, status: e.target.value}); updateItem()}}>
+                <select type='text' className='item' title='status' value={item.status} onChange={e => changeItem({...item, status: e.target.value})}>
                     <option value=''></option>
                     <option value='Incomplete'>Incomplete</option>
                     <option value='Ordered'>Ordered</option>
@@ -72,6 +68,7 @@ export default function Item(props) {
                     <option value='Complete'>Complete</option>
                 </select>
             </td>
+            <td><button className='pure-button' disabled={checkItemEquality} onClick={updateItem}>UPDATE</button></td>
             <td><button className='pure-button' onClick={deleteItem}>DELETE</button></td>
         </tr>
     )

@@ -81,6 +81,7 @@ export default function Group(props) {
                             <th>Due date</th>
                             <th>Priority</th>
                             <th>Status</th>
+                            <th>UPDATE</th>
                             <th>DELETE</th>
                         </tr>
                     </thead>
