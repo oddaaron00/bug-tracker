@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Group from './Group';
+import Loading from './Loading';
 
 /**
  * @param {Object} props
@@ -83,7 +84,7 @@ export default function Workspace(props) {
 
     if (isLoading) {
         return (
-            <h1>LOADING</h1>
+            <Loading />
         )
     } else {
         return (

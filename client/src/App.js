@@ -73,9 +73,9 @@ const deleteWorkspace = workspaceId => {
     return (
       <>
       <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-                <h2 className='errorMessage'>{error}</h2>
-                <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
-            </div>
+        <h2 className='errorMessage'>{error}</h2>
+        <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
+      </div>
       <Entry changeLoginState={changeLoginState} changeUser={changeUser} setToken={setToken} setError={setError}/>
       </>
     )
