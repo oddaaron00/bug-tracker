@@ -27,12 +27,10 @@ export default function Item(props) {
     }
 
     const updateItem = () => {
-        //console.log(item.status);
         props.updateItem({
             id: props.item._id,
             item: item
         });
-        //console.log(item);
     }
 
     const checkItemEquality = () => {
