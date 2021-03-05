@@ -68,8 +68,8 @@ export default function Item(props) {
                     <option value='Complete'>Complete</option>
                 </select>
             </td>
-            <td><button className='pure-button' disabled={checkItemEquality} onClick={updateItem}>UPDATE</button></td>
-            <td><button className='pure-button' onClick={deleteItem}>DELETE</button></td>
+            <td><button className='pure-button' disabled={checkItemEquality} onClick={updateItem}>Update</button></td>
+            <td><button className='pure-button' onClick={deleteItem}>Delete</button></td>
         </tr>
     )
 }
