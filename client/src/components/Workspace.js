@@ -88,7 +88,7 @@ export default function Workspace(props) {
     } else {
         return (
             <>
-            <header>
+            <header className='workspaceHeader'>
                 <button className='pure-button backButton' onClick={props.toHome}>Back</button>
                 <h1 className='mainTitle'>{workspace.title}</h1>
                 <p className='description'>{workspace.description}</p>

@@ -27,7 +27,6 @@ export default function Item(props) {
     }
 
     const updateOnEnter = e => {
-        console.log(e.target.value);
         if (e.key === 'Enter')
         {
             document.activeElement.blur();
@@ -36,22 +35,26 @@ export default function Item(props) {
                 item: item
             })
         }
+        //console.log(e.target.value);
     }
 
     const updateItem = () => {
+        //console.log(item.status);
         props.updateItem({
             id: props.item._id,
             item: item
         });
+        //console.log(item);
     }
 
     return (
         <tr>
-            {console.log(item.due_date)}
-            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
+            <td className='tooltip'><input type='text' className='item' value={item.title} onKeyPress={updateOnEnter} onChange={e => {console.log(e.target.value); changeItem({...item, title: e.target.value})}} /><span className='tooltiptext'>{item.title}</span></td>
             <td className='tooltip'><input type='text' className='item' value={item.description} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString()}</td>
-            <td><input type='datetime-local' className='item' name='itemDueDate' value={item.due_date ? item.due_date.toLocaleString() : ''} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, due_date: e.target.value})}/></td>
+            <td>
+            <input type='text' className='item' name='itemDueDate' value={item.due_date ? item.due_date.toLocaleString() : ''} onKeyPress={updateOnEnter} onChange={e => changeItem({...item, due_date: e.target.value})}/>
+            </td>
             <td>
                 <select type='text' className='item' title='priority' value={item.priority} onChange={e => {changeItem({...item, priority: e.target.value}); updateItem()}}>
                     <option value=''></option>

@@ -16,7 +16,7 @@ export default function Main(props) {
     if (workspaceId === '') {
         return (
             <div>
-                <header>
+                <header className='mainHeader'>
                     <button className='pure-button backButton' onClick={props.logOut}>Log out</button>
                     <h1 className='mainTitle'>{props.user.username}'s workspaces</h1>
                 </header>
