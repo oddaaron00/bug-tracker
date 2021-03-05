@@ -14,7 +14,7 @@ export default function Item(props) {
         title: props.item.title,
         description: props.item.description,
         creation_date: props.item.creation_date,
-        due_date: new Date(props.item.due_date),
+        due_date: props.item.due_date || '',
         priority: props.item.priority,
         status: props.item.status
     });
@@ -36,12 +36,20 @@ export default function Item(props) {
     }
 
     const checkItemEquality = () => {
-        return item.title === props.item.title
-        && item.description === props.item.description
-        && item.creation_date === props.item.creation_date
-        && item.due_date.getTime() === new Date(props.item.due_date).getTime()
-        && item.priority === props.item.priority
-        && item.status === props.item.status;
+        if (item.title === '') {
+            return true;
+        //isNaN(new Date('').getTime()) returns true so this checks that item.due_date is a valid date and is not empty
+        } else if (isNaN(new Date(item.due_date).getTime()) && item.due_date !== '') {
+            return true;
+        } else {
+            return item.title === props.item.title
+            && item.description === props.item.description
+            && item.creation_date === props.item.creation_date
+            //Checks that either both due_dates are not empty and equal or are empty and equal
+            && (new Date(item.due_date).getTime() === new Date(props.item.due_date).getTime() || (item.due_date === (props.item.due_date == null ? '' : props.item.due_date)))
+            && item.priority === props.item.priority
+            && item.status === props.item.status;
+        }
     }
 
     return (
@@ -50,7 +58,7 @@ export default function Item(props) {
             <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString()}</td>
             <td>
-            <input type='text' className='item' name='itemDueDate' value={item.due_date ? item.due_date.toLocaleString() : ''} onChange={e => {console.log(e.target.value); changeItem({...item, due_date: new Date(e.target.value)})}}/>
+            <input type='text' className='item' name='itemDueDate' defaultValue={item.due_date ? new Date(item.due_date).toLocaleString() : ''} onChange={e => {console.log(e.target.value); changeItem({...item, due_date: e.target.value})}}/>
             </td>
             <td>
                 <select type='text' className='item' title='priority' value={item.priority} onChange={e => changeItem({...item, priority: e.target.value})}>
