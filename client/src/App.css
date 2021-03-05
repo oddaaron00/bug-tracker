@@ -153,6 +153,7 @@ header {
     padding: 5px;
     border-radius: 6px;
     word-wrap: break-word;
+    white-space: normal;
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
