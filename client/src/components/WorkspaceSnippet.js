@@ -13,6 +13,12 @@ export default function WorkspaceSnippet(props) {
         description: ''
     });
 
+    const deleteConfirm = () => {
+        if (window.confirm('Are you sure you want to delete this workspace?')) {
+            props.deleteWorkspace(props.workspace._id)
+        }
+    }
+
     if (props.default) {
         return (
 
@@ -32,7 +38,7 @@ export default function WorkspaceSnippet(props) {
                 <h2 onClick={() => props.setWorkspaceId(props.workspace._id)}>{props.workspace.title}</h2>
                 <p>{props.workspace.description}</p>
                 <div className='buttonContainer'>
-                    <button className='pure-button' onClick={() => props.deleteWorkspace(props.workspace._id)}>Delete</button>
+                    <button className='pure-button' onClick={deleteConfirm}>Delete</button>
                 </div>
             </div>
         </li>
