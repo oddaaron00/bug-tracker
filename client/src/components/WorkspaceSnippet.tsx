@@ -1,6 +1,5 @@
 import 'purecss/build/grids-responsive-min.css';
 import { useState } from 'react';
-import React = require('react');
 
 type Props = {
     key: string,
