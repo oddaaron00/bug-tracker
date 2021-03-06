@@ -215,3 +215,31 @@ th {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+option {
+    background-color: white;
+}
+
+.Complete {
+    background-color: #A0CC80;
+}
+
+.Complete input {
+    background-color: #A0CC80;
+}
+
+.Complete select {
+    background-color: #A0CC80;
+}
+
+.Late {
+    background-color: #E76C66;
+}
+
+.Late input {
+    background-color: #E76C66;
+}
+
+.Late select {
+    background-color: #E76C66;
+}

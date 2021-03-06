@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
  * @param {Object} props
@@ -18,6 +18,17 @@ export default function Item(props) {
         priority: props.item.priority,
         status: props.item.status
     });
+
+    const [isLate, setLateness] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (props.item.due_date && new Date(props.item.due_date) < Date.now()) {
+                setLateness(true);
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [props.item.due_date])
 
     const deleteItem = () => {
         props.deleteItem({
@@ -54,7 +65,7 @@ export default function Item(props) {
     }
 
     return (
-        <tr>
+        <tr className={props.item.status === 'Complete' ? props.item.status : (isLate ? 'Late' : '')}>
             <td className='tooltip'><input type='text' className='item' value={item.title} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
             <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString('en-US')}</td>
