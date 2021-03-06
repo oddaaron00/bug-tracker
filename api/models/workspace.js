@@ -6,7 +6,7 @@ const { Schema } = mongoose;
  * User > WORKSPACE > Group > Item
  */
 const workspaceSchema = new Schema({
-    owner: {type: Schema.Types.ObjectId, required: false},
+    owner: {type: Schema.Types.ObjectId, required: true},
     title: {type: String, required: true},
     description: String,
     groups: [{type: Schema.Types.ObjectId, ref: 'Group'}]

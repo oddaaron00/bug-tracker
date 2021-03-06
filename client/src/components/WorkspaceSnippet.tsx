@@ -1,13 +1,28 @@
-import { useState } from 'react';
 import 'purecss/build/grids-responsive-min.css';
+import { useState } from 'react';
+import React = require('react');
+
+type Props = {
+    key: string,
+    default: boolean,
+    setWorkspaceId: Function,
+    addWorkspace: Function,
+    deleteWorkspace: Function,
+    workspace: {
+        _id: string,
+        owner: string,
+        title: string,
+        description: string
+    }
+}
 
 /**
  * 
  * @param {Object} props 
- * @param {foolean} props.default
+ * @param {boolean} props.default
  * @param {Function} props.addWorkspace
  */
-export default function WorkspaceSnippet(props) {
+export default function WorkspaceSnippet(props: Props) {
     const [newWorkspace, changeNewWorkspace] = useState({
         title: '',
         description: ''
