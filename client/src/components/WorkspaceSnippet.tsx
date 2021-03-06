@@ -28,7 +28,7 @@ export default function WorkspaceSnippet(props: Props) {
         description: ''
     });
 
-    const deleteConfirm = () => {
+    const deleteConfirm = (): void => {
         if (window.confirm('Are you sure you want to delete this workspace?')) {
             props.deleteWorkspace(props.workspace._id)
         }
@@ -36,7 +36,6 @@ export default function WorkspaceSnippet(props: Props) {
 
     if (props.default) {
         return (
-
             <li className='pure-form pure-u-1 addWorkspace'>
                 <fieldset>
                     <legend>Add Workspace</legend>
