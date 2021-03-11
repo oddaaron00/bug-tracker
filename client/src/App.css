@@ -249,3 +249,18 @@ option {
     background-color: #E76C66;
     transition: background-color .5s ease-in;
 }
+
+.NotLate {
+    background-color: #FFF;
+    transition: background-color .5s ease-in;
+}
+
+.NotLate input {
+    background-color: #FFF;
+    transition: background-color .5s ease-in;
+}
+
+.NotLate select {
+    background-color: #FFF;
+    transition: background-color .5s ease-in;
+}
