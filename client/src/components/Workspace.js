@@ -2,14 +2,6 @@ import { useState, useEffect } from 'react';
 import Group from './Group';
 import Loading from './Loading';
 
-type Props = {
-    token: string,
-    workspaceId: string,
-    username: string,
-    setError: Function,
-    toHome: MouseEvent
-}
-
 /**
  * @param {Object} props
  * @param {string} props.token
@@ -17,7 +9,7 @@ type Props = {
  * @param {string} props.username
  * @param {Function} props.toHome
  */
-export default function Workspace(props: Props) {
+export default function Workspace(props) {
     const [workspace, setWorkspace] = useState({});
     const [isLoading, setLoading] = useState(true);
     const [token] = useState(props.token ? props.token : localStorage.getItem('BugTrackerToken'));
@@ -30,17 +22,17 @@ export default function Workspace(props: Props) {
             }
         })
         .then(res => {
-            if (res.status >= 400) {
-                throw res;
-            }
-            return res.json();
+        if (res.status >= 400) {
+            throw res;
+        }
+        return res.json();
         })
         .then(res => setWorkspace(res))
         .then(() => setLoading(false))
         .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }, [props, token]); 
 
-    const fetchJSON = (object: object, method: string) => {
+    const fetchJSON = (object, method) => {
         return fetch(`http://localhost:3006/user/${props.username}/${props.workspaceId}`, {
             method: method,
             headers: {
@@ -52,7 +44,7 @@ export default function Workspace(props: Props) {
         });
     };
 
-    const addItemToGroup = (object: { group_id: string, newItem: { title: string, description: string, due_date: Date, priority: string, status: string, creation_date?: Date } }) => {
+    const addItemToGroup = object => {
         object.newItem.creation_date = new Date();
         fetchJSON(object, 'POST')
         .then(res => {
