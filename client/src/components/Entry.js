@@ -9,8 +9,6 @@ import Register from './Register';
  * @param {Function} props.setToken
  */
 export default function Entry(props) {
-    require('dotenv').config();
-
     const [isLogin, isRegister] = useState(true);
 
     /**
@@ -29,7 +27,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptRegister = (username, password) => {
-        fetch(`${process.env.REACT_APP_URL}/register`, {
+        fetch(`${process.env.URL}/register`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -62,7 +60,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptLogin = (username, password) => {
-        fetch(`${process.env.REACT_APP_URL}/login`, {
+        fetch(`${process.env.URL}/login`, {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
@@ -94,7 +92,7 @@ export default function Entry(props) {
      * @param {string} token - JWT for user
      */
     const getUser = token => {
-        fetch(`${process.env.REACT_APP_URL}/user`, {
+        fetch(`${process.env.URL}/user`, {
             method: 'GET',
             headers: {
                 'x-access-token': token

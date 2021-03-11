@@ -4,7 +4,6 @@ import Entry from './components/Entry';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-require('dotenv').config();
 
 export default function App() {
   const [isLoggedIn, changeLoginState] = useState(false);
@@ -28,7 +27,7 @@ export default function App() {
    * @param {string} newWorkspace.description
    */
   const addWorkspace = newWorkspace => {
-    fetch(`${process.env.REACT_APP_URL}/user/${user.username}/`, {
+    fetch(`${process.env.URL}/user/${user.username}/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -51,7 +50,7 @@ export default function App() {
  * @param {string} workspaceId 
  */
 const deleteWorkspace = workspaceId => {
-  fetch(`${process.env.REACT_APP_URL}/user/${user.username}/`, {
+  fetch(`${process.env.URL}/user/${user.username}/`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
