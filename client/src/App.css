@@ -222,27 +222,30 @@ option {
 
 .Complete {
     background-color: #A0CC80;
+    transition: background-color .5s ease-in;
 }
 
 .Complete input {
     background-color: #A0CC80;
+    transition: background-color .5s ease-in;
 }
 
 .Complete select {
     background-color: #A0CC80;
+    transition: background-color .5s ease-in;
 }
 
 .Late {
     background-color: #E76C66;
-    transition: background-color .6s ease-in;
+    transition: background-color .5s ease-in;
 }
 
 .Late input {
     background-color: #E76C66;
-    transition: background-color .6s ease-in;
+    transition: background-color .5s ease-in;
 }
 
 .Late select {
     background-color: #E76C66;
-    transition: background-color .6s ease-in;
+    transition: background-color .5s ease-in;
 }
