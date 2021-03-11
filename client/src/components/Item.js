@@ -19,7 +19,7 @@ export default function Item(props) {
         status: props.item.status
     });
 
-    const [isLate, setLateness] = useState(false);
+    const [isLate, setLateness] = useState(props.item.due_date && new Date(props.item.due_date) < Date.now());
 
     useEffect(() => {
         const interval = setInterval(() => {
