@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Group from './Group';
 import Loading from './Loading';
+require('dotenv').config();
 
 /**
  * @param {Object} props
@@ -16,7 +17,7 @@ export default function Workspace(props) {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`${process.env.URL}/user/${props.username}/${props.workspaceId}`, {
+        fetch(`${process.env.REACT_APP_URL}/user/${props.username}/${props.workspaceId}`, {
             headers: {
                 'x-access-token': token
             }
@@ -33,7 +34,7 @@ export default function Workspace(props) {
     }, [props, token]); 
 
     const fetchJSON = (object, method) => {
-        return fetch(`${process.env.URL}/user/${props.username}/${props.workspaceId}`, {
+        return fetch(`${process.env.REACT_APP_URL}/user/${props.username}/${props.workspaceId}`, {
             method: method,
             headers: {
             'Accept': 'application/json',
