@@ -27,7 +27,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptRegister = (username, password) => {
-        fetch(`${process.env.URL}/register`, {
+        fetch('http://localhost:3006/register', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -60,7 +60,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptLogin = (username, password) => {
-        fetch(`${process.env.URL}/login`, {
+        fetch('http://localhost:3006/login', {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
@@ -92,7 +92,7 @@ export default function Entry(props) {
      * @param {string} token - JWT for user
      */
     const getUser = token => {
-        fetch(`${process.env.URL}/user`, {
+        fetch('http://localhost:3006/user', {
             method: 'GET',
             headers: {
                 'x-access-token': token

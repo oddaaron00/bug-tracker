@@ -16,7 +16,7 @@ export default function Workspace(props) {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`${process.env.URL}/user/${props.username}/${props.workspaceId}`, {
+        fetch(`http://localhost:3006/user/${props.username}/${props.workspaceId}`, {
             headers: {
                 'x-access-token': token
             }
@@ -33,7 +33,7 @@ export default function Workspace(props) {
     }, [props, token]); 
 
     const fetchJSON = (object, method) => {
-        return fetch(`${process.env.URL}/user/${props.username}/${props.workspaceId}`, {
+        return fetch(`http://localhost:3006/user/${props.username}/${props.workspaceId}`, {
             method: method,
             headers: {
             'Accept': 'application/json',
