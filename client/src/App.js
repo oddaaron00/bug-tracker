@@ -27,7 +27,7 @@ export default function App() {
    * @param {string} newWorkspace.description
    */
   const addWorkspace = newWorkspace => {
-    fetch(`http://localhost:3006/user/${user.username}/`, {
+    fetch(`${process.env.URL}/user/${user.username}/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -50,7 +50,7 @@ export default function App() {
  * @param {string} workspaceId 
  */
 const deleteWorkspace = workspaceId => {
-  fetch(`http://localhost:3006/user/${user.username}/`, {
+  fetch(`${process.env.URL}/user/${user.username}/`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
