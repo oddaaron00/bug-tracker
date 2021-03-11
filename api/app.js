@@ -38,6 +38,7 @@ const verifyJwt = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
         next();
     } catch(e) {
+        console.log("400")
         res.status(400).send(JSON.stringify('INVALID TOKEN'));
     }
 }
@@ -92,9 +93,9 @@ app.use(limiter);
 app.use('/', cleanBody);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/user/', verifyJwt);
-app.use('/user/:username', checkAuthorised);
 app.use('/user/:username/:id', checkAuthorisedWorkspace);
+app.use('/user/:username', checkAuthorised);
+app.use('/user/', verifyJwt);
 app.use('/user', userRouter);
 
 module.exports = app;

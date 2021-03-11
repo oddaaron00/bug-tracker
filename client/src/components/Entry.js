@@ -109,7 +109,7 @@ export default function Entry(props) {
             props.changeLoginState(true);
             localStorage.setItem('BugTrackerToken', token);
         })
-        .catch(err => props.setError(`(${err.status}): ${err.statusText}`))
+        .catch(err => { if (err.status !== 400) { props.setError(`(${err.status}): ${err.statusText}`) } });
     }
 
     if (isLogin) {
