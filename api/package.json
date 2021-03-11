@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,8 +17,5 @@
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.11.17",
     "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
   }
 }
