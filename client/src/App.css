@@ -234,12 +234,15 @@ option {
 
 .Late {
     background-color: #E76C66;
+    transition: background-color .6s ease-in;
 }
 
 .Late input {
     background-color: #E76C66;
+    transition: background-color .6s ease-in;
 }
 
 .Late select {
     background-color: #E76C66;
+    transition: background-color .6s ease-in;
 }
