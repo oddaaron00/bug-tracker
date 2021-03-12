@@ -61,13 +61,12 @@ header {
     padding: 0px 2px;
 }
 
-.workspaceSnippet > h2 {
+.workspaceSnippet > button {
     text-align: center;
 }
 
 .workspaceSnippet > p {
     padding: 10px;
-    padding-bottom: 50px;
 }
 .buttonContainer {
     text-align: center;
@@ -263,4 +262,10 @@ option {
 .NotLate select {
     background-color: #FFF;
     transition: background-color .5s ease-in;
+}
+
+.snippetTitle {
+    border: none;
+    padding: 10px;
+    font-size: x-large;
 }

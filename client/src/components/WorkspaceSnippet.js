@@ -35,7 +35,9 @@ export default function WorkspaceSnippet(props) {
     return (
         <li className='pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 snippetContainer'>
             <div className='workspaceSnippet'>
-                <h2 onClick={() => props.setWorkspaceId(props.workspace._id)}>{props.workspace.title}</h2>
+                <div className='buttonContainer'>
+                    <button className='snippetTitle' onClick={() => props.setWorkspaceId(props.workspace._id)}>{props.workspace.title}</button>
+                </div>
                 <p>{props.workspace.description}</p>
                 <div className='buttonContainer'>
                     <button className='pure-button' onClick={deleteConfirm}>Delete</button>
