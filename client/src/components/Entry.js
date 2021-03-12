@@ -9,8 +9,6 @@ import Register from './Register';
  * @param {Function} props.setToken
  */
 export default function Entry(props) {
-    require('dotenv').config();
-
     const [isLogin, isRegister] = useState(true);
 
     /**
