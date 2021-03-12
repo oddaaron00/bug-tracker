@@ -52,7 +52,9 @@ export default function Group(props) {
                     <div className='addNewItemButtons'>
                         <button type='submit' className='pure-button pure-button-primary' aria-label='Add item to group' disabled={item.newItem.title === ''} onClick={e => {
                             e.preventDefault();
-                            props.addItemToGroup(item)
+                            props.addItemToGroup(item);
+                            isDummyRowVisible(false);
+                            isButtonVisible(true);
                             changeItem(defaultState);
                         }}>Add</button>
                         <button type='button' className='pure-button' onClick={() => {
