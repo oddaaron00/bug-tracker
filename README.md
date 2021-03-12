@@ -9,3 +9,4 @@ To start, create a .env file under /api with variables SECRET_KEY and URI:
 
 Next, edit `setupEnvironment.bat` and change the file paths so they are accurate for your setup.
 Then run the .bat file to start both the client and the API.
+Alternatively, navigate to the /API and /client folders and run `npm start` separately.
