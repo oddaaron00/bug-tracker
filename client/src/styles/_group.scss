@@ -11,7 +11,7 @@
 }
 
 .tableContainer {
-    padding: 0px 20px;
+    margin: 0px 20px;
     padding-bottom: 10px;
     overflow: auto;
     white-space: nowrap;
@@ -34,5 +34,11 @@
 
     .addNewItemButtons {
         display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .tableContainer {
+        margin: 0px 10px;
     }
 }
