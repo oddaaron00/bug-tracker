@@ -64,7 +64,7 @@ export default function Item(props) {
     }
 
     return (
-        <tr className={props.item.status === 'Complete' ? props.item.status : (isLate ? 'Late' : 'NotLate')}>
+        <tr className={props.item.status === 'Complete' ? 'complete' : (isLate ? 'late' : 'notLate')}>
             <td className='tooltip'><input type='text' className='item' value={item.title} onChange={e => changeItem({...item, title: e.target.value})} /><span className='tooltiptext'>{item.title}</span></td>
             <td className='tooltip'><input type='text' className='item' value={item.description} onChange={e => changeItem({...item, description: e.target.value})} />{item.description && <span className='tooltiptext'>{item.description}</span>}</td>
             <td>{new Date(item.creation_date).toLocaleString('en-US')}</td>

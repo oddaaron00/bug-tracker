@@ -90,10 +90,10 @@ export default function Workspace(props) {
     } else {
         return (
             <>
-            <header className='workspaceHeader'>
-                <button className='pure-button backButton' onClick={props.toHome}>Back</button>
-                <h1 className='mainTitle'>{workspace.title}</h1>
-                <p className='description'>{workspace.description}</p>
+            <header id='workspaceHeader'>
+                <button id='backButton' className='pure-button' onClick={props.toHome}>Back</button>
+                <h1 id='mainTitle'>{workspace.title}</h1>
+                <p id='description'>{workspace.description}</p>
             </header>
             <ul>
                 {workspace.groups.map(group => <Group key={group._id} addItemToGroup={addItemToGroup} group={group} updateItem={updateItem} deleteItem={deleteItem}/>)}

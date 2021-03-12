@@ -1,0 +1,49 @@
+@use 'colors';
+
+#addWorkspace {
+    margin: 0px 20px;
+
+    #rightmostFormElement {
+        margin-right: 10px;
+    }
+}
+
+.snippetContainer {
+    .workspaceSnippet {
+        box-sizing: border-box;
+        border: 2px solid colors.$border-color;
+        border-radius: 10px;
+        position: relative;
+        margin: 20px;
+        padding: 0px 2px;
+    
+        button {
+            text-align: center;
+        }
+    
+        p {
+            padding: 0px 10px;
+        }
+    }
+    
+    .buttonContainer {
+        text-align: center;
+    
+        button {
+            width: 50%;
+            bottom: 0;
+            border-radius: 5px 5px 0px 0px
+        }
+    }
+    
+    .snippetTitle {
+        border: none;
+        padding: 10px;
+        font-size: x-large;
+    
+        &:focus {
+            outline-color: colors.$item-focus-border-color;
+        }
+    }
+}
+

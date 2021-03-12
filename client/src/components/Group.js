@@ -54,11 +54,11 @@ export default function Group(props) {
                             e.preventDefault();
                             props.addItemToGroup(item)
                             changeItem(defaultState);
-                        }}>ADD</button>
+                        }}>Add</button>
                         <button type='button' className='pure-button' onClick={() => {
                             isDummyRowVisible(false);
                             isButtonVisible(true);
-                        }}>BACK</button>
+                        }}>Back</button>
                     </div>
                 </form>
             </div>
@@ -71,7 +71,7 @@ export default function Group(props) {
                 <FontAwesomeIcon onClick={() => areItemsVisible(!itemVisibility)} className='collapseGroup' icon={itemVisibility ? minusOpen : minusClosed } aria-label='Minimise group'/>
                 <h2 style={{'display':'inline-block'}}>{props.group.title}</h2>
             </div>
-            <div className='table-container'>
+            <div className='tableContainer'>
                 <table className='pure-table pure-table-horizontal group'>
                     <thead>
                         <tr>
@@ -81,8 +81,8 @@ export default function Group(props) {
                             <th>Due date</th>
                             <th>Priority</th>
                             <th>Status</th>
-                            <th>UPDATE</th>
-                            <th>DELETE</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,7 +90,7 @@ export default function Group(props) {
                     </tbody>
                 </table>
             </div>
-            {/*Displays message if no items*/ !props.group.items.length && <p className='noItems'>No items in this group!</p>}
+            {/*Displays message if no items and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
             {dummyRowVisibility && addDummyRow()}
             {buttonVisibility && <button className='pure-button pure-button-primary addItemButton' onClick={() => {
                 isDummyRowVisible(true);

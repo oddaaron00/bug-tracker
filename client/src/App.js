@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './styles/App.scss';
 import Entry from './components/Entry';
 import Main from './components/Main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -73,9 +73,9 @@ const deleteWorkspace = workspaceId => {
   if (!isLoggedIn) {
     return (
       <>
-      <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-        <h2 className='errorMessage'>{error}</h2>
-        <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
+      <div id='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
+        <h2 id='errorMessage'>{error}</h2>
+        <FontAwesomeIcon id='errorCross' onClick={() => setError()} icon={faTimes}/>
       </div>
       <Entry changeLoginState={changeLoginState} changeUser={changeUser} setToken={setToken} setError={setError}/>
       </>
@@ -83,9 +83,9 @@ const deleteWorkspace = workspaceId => {
   } else {
     return (
       <>
-      <div className='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
-        <h2 className='errorMessage'>{error}</h2>
-        <FontAwesomeIcon className='errorCross' onClick={() => setError()} icon={faTimes}/>
+      <div id='errorContainer' style={{visibility: error ? 'visible' : 'hidden'}}>
+        <h2 id='errorMessage'>{error}</h2>
+        <FontAwesomeIcon id='errorCross' onClick={() => setError()} icon={faTimes}/>
       </div>
       <Main user={user} token={token} addWorkspace={addWorkspace} deleteWorkspace={deleteWorkspace} logOut={logOut} setError={setError}/>
       </>

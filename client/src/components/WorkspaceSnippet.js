@@ -22,7 +22,7 @@ export default function WorkspaceSnippet(props) {
     if (props.default) {
         return (
 
-            <li className='pure-form pure-u-1 addWorkspace'>
+            <li id='addWorkspace' className='pure-form pure-u-1'>
                 <fieldset>
                     <legend>Add Workspace</legend>
                     <input type='text' aria-label='New workspace name' name='title' placeholder='Title' value={newWorkspace.title} onChange={e => changeNewWorkspace({...newWorkspace, title: e.target.value})} />

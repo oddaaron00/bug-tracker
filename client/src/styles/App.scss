@@ -1,0 +1,28 @@
+@use 'entry';
+@use 'error';
+@use 'loading';
+@use 'workspaceSnippet';
+@use 'main';
+@use 'workspace';
+@use 'group';
+@use 'item';
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+table {
+    width: 100%;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+th {
+    vertical-align: middle;
+}
+
+option {
+    background-color: white;
+}

@@ -1,0 +1,38 @@
+@use 'colors';
+
+.groupHeader {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+
+    .collapseGroup {
+        padding: 0px 5px;
+    }
+}
+
+.tableContainer {
+    padding: 0px 20px;
+    padding-bottom: 10px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.noItems {
+    padding-left: 20px;
+}
+
+.addItemButton {
+    margin: 10px 20px;
+}
+
+.newItem {
+    padding: 0px 20px;
+
+    .rightmostNewItem {
+        margin-right: 10px;
+    }
+
+    .addNewItemButtons {
+        display: inline-block;
+    }
+}

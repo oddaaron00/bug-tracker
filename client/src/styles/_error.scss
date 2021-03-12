@@ -1,0 +1,18 @@
+@use 'colors';
+
+#errorContainer {
+    background-color: colors.$error-color;
+    display: flex;
+    justify-content: space-between;
+}
+
+#errorMessage {
+    margin: 0;
+    padding: 4px;
+    font-size: 11pt;
+}
+
+#errorCross {
+    margin: auto 0;
+    padding: 0px 10px;
+}

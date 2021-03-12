@@ -11,7 +11,7 @@ export default function Register(props) {
 
     return (
         <div id='entry'>
-            <div className='container'>
+            <div id='container'>
                 <h1>Register</h1>
                 <form className='pure-form pure-form-stacked'>
                     <label htmlFor='username'>Username</label>

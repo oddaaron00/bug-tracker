@@ -16,13 +16,13 @@ export default function Main(props) {
     if (workspaceId === '') {
         return (
             <div>
-                <header className='mainHeader'>
-                    <button className='pure-button backButton' onClick={props.logOut}>Log out</button>
-                    <h1 className='mainTitle'>{props.user.username}'s workspaces</h1>
+                <header id='mainHeader'>
+                    <button id='logoutButton' className='pure-button' onClick={props.logOut}>Log out</button>
+                    <h1 id='mainTitle'>{props.user.username}'s workspaces</h1>
                 </header>
                 <ul className='pure-g'>
                     <WorkspaceSnippet default={true} addWorkspace={props.addWorkspace}/>
-                    {!props.user.workspaces.length && <li className='pure-u-1 noWorkspaceMsg'>No workspaces!</li>}
+                    {!props.user.workspaces.length && <li id='noWorkspaceMsg' className='pure-u-1'>No workspaces!</li>}
                     {props.user.workspaces.map(workspace => <WorkspaceSnippet key={workspace._id} workspace={workspace} deleteWorkspace={props.deleteWorkspace} setWorkspaceId={setWorkspaceId} />)}
                 </ul>
             </div>

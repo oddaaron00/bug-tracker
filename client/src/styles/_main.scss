@@ -1,0 +1,35 @@
+@use 'colors';
+
+#mainHeader {
+    margin-bottom: 40px;
+
+    #logoutButton {
+        margin: 0px 20px;
+        position: absolute;
+    }
+
+    #mainTitle {
+        text-align: center;
+    }
+}
+
+#noWorkspaceMsg {
+    padding: 30px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #mainHeader {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        #logoutButton {
+            position: static;
+            margin: 20px 0px;
+        }
+        #mainTitle {
+            margin: 0 0;
+        }
+    }
+}

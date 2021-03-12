@@ -1,0 +1,86 @@
+@use 'colors';
+
+.complete {
+    background-color: colors.$complete-color;
+    transition: background-color .5s ease-in;
+
+    input {
+        background-color: colors.$complete-color;
+        transition: background-color .5s ease-in;
+    }
+
+    select {
+        background-color: colors.$complete-color;
+        transition: background-color .5s ease-in;
+    }
+}
+
+.late {
+    background-color: colors.$late-color;
+    transition: background-color .5s ease-in;
+
+    input {
+        background-color: colors.$late-color;
+        transition: background-color .5s ease-in;
+    }
+
+    select {
+        background-color: colors.$late-color;
+        transition: background-color .5s ease-in;
+    }
+}
+
+.notLate {
+    background-color: colors.$not-late-color;
+    transition: background-color .5s ease-in;
+
+    input {
+        background-color: colors.$not-late-color;
+        transition: background-color .5s ease-in;
+    }
+
+    select {
+        background-color: colors.$not-late-color;
+        transition: background-color .5s ease-in;
+    }
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    word-wrap: break-word;
+    white-space: normal;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.item {
+    text-overflow: ellipsis;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+        outline: 2px dashed colors.$item-focus-border-color;
+        padding: 8px 0px;
+    }
+
+    &:hover {
+        outline: 2px dashed colors.$item-focus-border-color;
+        padding: 8px 0px;
+    }
+}
