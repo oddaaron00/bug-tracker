@@ -2,7 +2,7 @@
  Bug tracker web app built using the MERN stack with added authentication using JWT
 
 # Demo
-![App demo](https://github.com/oddaaron00/bug-tracker/blob/main/demo.gif | width=250)
+![App demo](https://github.com/oddaaron00/bug-tracker/blob/main/demo.gif =250x)
 
 # Get started
 To start, create a .env file under /api with variables SECRET_KEY and URI:
