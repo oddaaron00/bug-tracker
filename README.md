@@ -3,7 +3,8 @@
 
 # Demo
 
-[demo on desktop](https://media2.giphy.com/media/EIDomzWhjKEikm63J2/giphy.gif)
+![demo on mobile](https://media2.giphy.com/media/EIDomzWhjKEikm63J2/giphy.gif)
+![demo on desktop](https://media0.giphy.com/media/9cB3IPh1b3XATOWIbi/giphy.gif)
 
 # Get started
 To start, create a .env file under /api with variables SECRET_KEY and URI:
