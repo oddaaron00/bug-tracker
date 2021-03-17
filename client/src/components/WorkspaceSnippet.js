@@ -6,6 +6,8 @@ import 'purecss/build/grids-responsive-min.css';
  * @param {Object} props 
  * @param {foolean} props.default
  * @param {Function} props.addWorkspace
+ * @param {Function} props.setWorkspaceId
+ * @param {Object} props.workspace
  */
 export default function WorkspaceSnippet(props) {
     const [newWorkspace, changeNewWorkspace] = useState({
