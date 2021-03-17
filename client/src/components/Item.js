@@ -19,9 +19,11 @@ export default function Item(props) {
         status: props.item.status
     });
 
+    //Makes item appear late if it has a due_date attribute AND the datetime on component mount is after due_date
     const [isLate, setLateness] = useState(props.item.due_date && new Date(props.item.due_date) < Date.now());
 
     useEffect(() => {
+        //Every second, check if the item is late
         const interval = setInterval(() => {
             if (props.item.due_date && new Date(props.item.due_date) < Date.now()) {
                 setLateness(true);
@@ -29,6 +31,7 @@ export default function Item(props) {
                 setLateness(false);
             }
         }, 1000);
+        //Clears interval on unmount
         return () => clearInterval(interval);
     }, [props.item.due_date])
 
@@ -88,6 +91,7 @@ export default function Item(props) {
                     <option value='Complete'>Complete</option>
                 </select>
             </td>
+            {/* If the item prop and the item state are different, the updateItem button is disabled */}
             <td><button className='pure-button' disabled={checkItemEquality()} onClick={updateItem}>Update</button></td>
             <td><button className='pure-button' onClick={deleteItem}>Delete</button></td>
         </tr>

@@ -6,6 +6,8 @@ import 'purecss/build/grids-responsive-min.css';
  * @param {Object} props 
  * @param {foolean} props.default
  * @param {Function} props.addWorkspace
+ * @param {Function} props.setWorkspaceId
+ * @param {Object} props.workspace
  */
 export default function WorkspaceSnippet(props) {
     const [newWorkspace, changeNewWorkspace] = useState({
@@ -19,9 +21,9 @@ export default function WorkspaceSnippet(props) {
         }
     }
 
+    //Originally, the 'add workspace' form was going to take the form of a WorkspaceSnippet, hence the 'default' prop denoting said form
     if (props.default) {
         return (
-
             <li id='addWorkspace' className='pure-form pure-u-1'>
                 <fieldset>
                     <legend>Add Workspace</legend>

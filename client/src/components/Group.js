@@ -24,12 +24,15 @@ export default function Group(props) {
         }
     }
 
-    const [dummyRowVisibility, isDummyRowVisible] = useState(false);
+    const [addItemFormVisibility, isAddItemFormVisible] = useState(false);
     const [buttonVisibility, isButtonVisible] = useState(true);
     const [item, changeItem] = useState(defaultState);
     const [itemVisibility, areItemsVisible] = useState(true);
 
-    const addDummyRow = () => {
+    /**
+     * Contains the details: title, description, due date, priority, and status
+     */
+    const addItemForm = () => {
         return (
             <div className='newItem'>
                 <form className='pure-form' autoComplete='off'>
@@ -50,15 +53,17 @@ export default function Group(props) {
                         <option value='Complete'>Complete</option>
                     </select>
                     <div className='addNewItemButtons'>
+                        {/* On click, sends new item object to addItemToGroup, makes addItemForm invisible, makes 'add item' button visible, and resets the new item object */}
                         <button type='submit' className='pure-button pure-button-primary' aria-label='Add item to group' disabled={item.newItem.title === ''} onClick={e => {
                             e.preventDefault();
                             props.addItemToGroup(item);
-                            isDummyRowVisible(false);
+                            isAddItemFormVisible(false);
                             isButtonVisible(true);
                             changeItem(defaultState);
                         }}>Add</button>
+                        {/* On click, makes addItemForm invisible and makes 'add item' button visible */}
                         <button type='button' className='pure-button' onClick={() => {
-                            isDummyRowVisible(false);
+                            isAddItemFormVisible(false);
                             isButtonVisible(true);
                         }}>Back</button>
                     </div>
@@ -88,14 +93,15 @@ export default function Group(props) {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* If items in the group are visible, map each item in the group object to an Item component */}
                         {itemVisibility && props.group.items.map(item => <Item key={item._id} item={item} group_id={props.group._id} updateItem={props.updateItem} deleteItem={props.deleteItem}/>)}
                     </tbody>
                 </table>
             </div>
-            {/*Displays message if no items and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
-            {dummyRowVisibility && addDummyRow()}
+            {/*Displays message if no items are in the group and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
+            {addItemFormVisibility && addItemForm()}
             {buttonVisibility && <button className='pure-button pure-button-primary addItemButton' onClick={() => {
-                isDummyRowVisible(true);
+                isAddItemFormVisible(true);
                 isButtonVisible(false);
             }}>Add Item</button>}
         </li>
