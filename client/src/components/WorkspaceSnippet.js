@@ -19,9 +19,9 @@ export default function WorkspaceSnippet(props) {
         }
     }
 
+    //Originally, the 'add workspace' form was going to take the form of a WorkspaceSnippet, hence the 'default' prop denoting said form
     if (props.default) {
         return (
-
             <li id='addWorkspace' className='pure-form pure-u-1'>
                 <fieldset>
                     <legend>Add Workspace</legend>
