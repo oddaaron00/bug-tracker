@@ -9,6 +9,7 @@ require('dotenv').config();
  * @param {string} props.workspaceId
  * @param {string} props.username
  * @param {Function} props.toHome
+ * @param {Function} props.setError
  */
 export default function Workspace(props) {
     const [workspace, setWorkspace] = useState({});
