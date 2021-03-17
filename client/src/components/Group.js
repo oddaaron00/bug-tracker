@@ -98,7 +98,7 @@ export default function Group(props) {
                     </tbody>
                 </table>
             </div>
-            {/*Displays message if no items and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
+            {/*Displays message if no items are in the group and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
             {addItemFormVisibility && addItemForm()}
             {buttonVisibility && <button className='pure-button pure-button-primary addItemButton' onClick={() => {
                 isAddItemFormVisible(true);
