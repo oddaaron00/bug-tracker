@@ -13,6 +13,7 @@ import Workspace from './Workspace';
 export default function Main(props) {
     const [workspaceId, setWorkspaceId] = useState('');
 
+    //If no workspace selected, display all workspaces in the form of snippets
     if (workspaceId === '') {
         return (
             <div>
