@@ -15,6 +15,7 @@ export default function Workspace(props) {
     const [isLoading, setLoading] = useState(true);
     const [token] = useState(props.token ? props.token : localStorage.getItem('BugTrackerToken'));
 
+    //Fetches the selected workspace and loads it in. If error, displays error
     useEffect(() => {
         setLoading(true);
         fetch(`${process.env.REACT_APP_URL}/user/${props.username}/${props.workspaceId}`, {
