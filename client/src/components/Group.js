@@ -29,7 +29,10 @@ export default function Group(props) {
     const [item, changeItem] = useState(defaultState);
     const [itemVisibility, areItemsVisible] = useState(true);
 
-    const addDummyRow = () => {
+    /**
+     * Contains the details: title, description, due date, priority, and status
+     */
+    const addItemForm = () => {
         return (
             <div className='newItem'>
                 <form className='pure-form' autoComplete='off'>
@@ -93,7 +96,7 @@ export default function Group(props) {
                 </table>
             </div>
             {/*Displays message if no items and items are visible*/ !props.group.items.length && itemVisibility && <p className='noItems'>No items in this group!</p>}
-            {dummyRowVisibility && addDummyRow()}
+            {dummyRowVisibility && addItemForm()}
             {buttonVisibility && <button className='pure-button pure-button-primary addItemButton' onClick={() => {
                 isDummyRowVisible(true);
                 isButtonVisible(false);
