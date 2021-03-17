@@ -9,6 +9,7 @@ import Workspace from './Workspace';
  * @param {Function} props.addWorkspace
  * @param {Function} props.deleteWorkspace
  * @param {Function} props.logOut
+ * @param {Function} props.setError
  */
 export default function Main(props) {
     const [workspaceId, setWorkspaceId] = useState('');
