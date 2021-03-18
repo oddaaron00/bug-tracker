@@ -28,7 +28,7 @@ export default function App() {
    * @param {string} newWorkspace.description
    */
   const addWorkspace = newWorkspace => {
-    fetch(`${process.env.REACT_APP_URL}/user/${user.username}/`, {
+    fetch(`${process.env.REACT_APP_URL}/user/${user.username}`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -51,7 +51,7 @@ export default function App() {
  * @param {string} workspaceId 
  */
 const deleteWorkspace = workspaceId => {
-  fetch(`${process.env.REACT_APP_URL}/user/${user.username}/`, {
+  fetch(`${process.env.REACT_APP_URL}/user/${user.username}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',

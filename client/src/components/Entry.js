@@ -27,7 +27,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptRegister = (username, password) => {
-        fetch(`${process.env.REACT_APP_URL}/register`, {
+        fetch(`${process.env.REACT_APP_URL}/register/`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -60,7 +60,7 @@ export default function Entry(props) {
      * @param {string} password - Supplied password
      */
     const attemptLogin = (username, password) => {
-        fetch(`${process.env.REACT_APP_URL}/login`, {
+        fetch(`${process.env.REACT_APP_URL}/login/`, {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
@@ -84,7 +84,7 @@ export default function Entry(props) {
                 getUser(res.token);
             }
         })
-        .catch(err => props.setError(`(${err.status}): ${err.statusText}`))
+        .catch(err => props.setError(`(${err.status}): ${err.statusText}`));
     }
 
     /**
@@ -92,7 +92,7 @@ export default function Entry(props) {
      * @param {string} token - JWT for user
      */
     const getUser = token => {
-        fetch(`${process.env.REACT_APP_URL}/user`, {
+        fetch(`${process.env.REACT_APP_URL}/user/`, {
             method: 'GET',
             headers: {
                 'x-access-token': token
